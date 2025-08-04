@@ -4,12 +4,14 @@ import { ThemeContext } from '../context/ThemeContext';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const context = useContext(ThemeContext);
+
   if (!context) {
     return <div>Error: ThemeContext is not available</div>;
   }
+
   const { theme } = context;
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
